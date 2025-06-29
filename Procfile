@@ -1,0 +1,1 @@
+web: streamlit run RIS_Demo_Streamlit.py --server.port=$PORT --server.address=0.0.0.0 
