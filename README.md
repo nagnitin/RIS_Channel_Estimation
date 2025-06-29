@@ -16,55 +16,23 @@ A Streamlit application for demonstrating RIS (Reconfigurable Intelligent Surfac
 pip install -r requirements.txt
 ```
 
-2. Run the app:
+2. Run the app (use a free port, e.g. 8503):
 ```bash
-streamlit run RIS_Demo_Streamlit.py
+streamlit run RIS_Demo_Streamlit.py --server.port 8503
 ```
 
-## Deployment Options
+## Deployment (Recommended: Streamlit Cloud)
 
-### 1. Streamlit Cloud (Recommended)
+This project is designed for free deployment on [Streamlit Cloud](https://share.streamlit.io):
 
-1. Push your code to GitHub
+1. Push your code to GitHub (already done)
 2. Go to [share.streamlit.io](https://share.streamlit.io)
-3. Connect your GitHub repository
-4. Deploy automatically
+3. Click "New app"
+4. Select your repository: `nagnitin/RIS_Channel_Estimation`
+5. Set the main file path: `RIS_Demo_Streamlit.py`
+6. Click "Deploy"
 
-### 2. Heroku
-
-1. Create a `Procfile`:
-```
-web: streamlit run RIS_Demo_Streamlit.py --server.port=$PORT --server.address=0.0.0.0
-```
-
-2. Deploy using Heroku CLI or GitHub integration
-
-### 3. Railway
-
-1. Connect your GitHub repository to Railway
-2. Railway will automatically detect and deploy your Streamlit app
-
-### 4. Docker
-
-1. Create a `Dockerfile`:
-```dockerfile
-FROM python:3.9-slim
-
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
-COPY . .
-EXPOSE 8501
-
-CMD ["streamlit", "run", "RIS_Demo_Streamlit.py", "--server.port=8501", "--server.address=0.0.0.0"]
-```
-
-2. Build and run:
-```bash
-docker build -t ris-demo .
-docker run -p 8501:8501 ris-demo
-```
+Your app will be live on a public URL provided by Streamlit Cloud!
 
 ## Project Structure
 
@@ -73,4 +41,8 @@ docker run -p 8501:8501 ris-demo
 - `RIS_DNN_CNN_AE_Models.ipynb` - Deep learning models notebook
 - `RIS_Channel_Simulation.ipynb` - Channel simulation notebook
 - `ris_multiuser_dataset.npz` - Multi-user dataset
-- `ris_channel_dataset.npz` - Channel dataset 
+- `ris_channel_dataset.npz` - Channel dataset
+- `requirements.txt` - Python dependencies
+- `.streamlit/config.toml` - Streamlit configuration
+- `.github/workflows/deploy.yml` - GitHub Actions workflow for automated testing
+
